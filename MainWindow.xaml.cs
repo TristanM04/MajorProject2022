@@ -21,6 +21,9 @@ namespace MajorProject2022
     public partial class MainWindow : Window
     {
         //I have finished working out which versions for all the packages I need to work on for this project and created the correct solution
+        //STEP 1: CHECK IF I CAN ACCESS THE SQL DATABASE
+        //STEP 2: CREATE THE WPF USER INTERFACE
+        //STEP 3: CORRESPOND THE INTERFACE BUTTONS WITH BACKEND METHODS AND CLASSES
         public MainWindow()
         {
             InitializeComponent();
