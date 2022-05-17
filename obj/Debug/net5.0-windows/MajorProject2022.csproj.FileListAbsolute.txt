@@ -40,11 +40,9 @@ C:\Users\trist\source\repos\MajorProject2022\bin\Debug\net5.0-windows\runtimes\w
 C:\Users\trist\source\repos\MajorProject2022\bin\Debug\net5.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\trist\source\repos\MajorProject2022\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProject2022.csproj.AssemblyReference.cache
-C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProject2022_MarkupCompile.cache
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProject2022_MarkupCompile.lref
-C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainWindow.baml
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProject2022.g.resources
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProject2022.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProject2022.AssemblyInfoInputs.cache
@@ -57,7 +55,12 @@ C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProje
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProject2022.genruntimeconfig.cache
 C:\Users\trist\source\repos\MajorProject2022\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Core.dll
 C:\Users\trist\source\repos\MajorProject2022\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Material.dll
-C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\ModernButtonTheme.baml
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\App.baml
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainPage.g.cs
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainPage.baml
+C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\CleanButtonTheme.baml
+C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\CleanTextBoxTheme.baml
+C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\RegisterWindow.g.cs
+C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\RegisterWindow.baml
+C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainWindow.baml

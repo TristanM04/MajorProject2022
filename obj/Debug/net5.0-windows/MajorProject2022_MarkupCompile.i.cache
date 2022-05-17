@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\trist\source\repos\MajorProject2022\App.xaml
-32084198009
+61396573004
 
-8-1273534711
+9-20386516
 2151660041260
-MainPage.xaml;MainWindow.xaml;ModernButtonTheme.xaml;
+CleanButtonTheme.xaml;CleanMessageBoxTheme.xaml;CleanTextBoxTheme.xaml;MainPage.xaml;MainWindow.xaml;RegisterWindow.xaml;
 
-False
+True
 
