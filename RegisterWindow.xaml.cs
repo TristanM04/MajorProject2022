@@ -33,9 +33,11 @@ namespace MajorProject2022
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) //Login Button on register window
         {
-           
+            MainWindow login = new MainWindow();
+            login.Show();
+            Close();
         }
 
         private void TextBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e) //This makes the text invisible when the user clicks on the text box
@@ -59,6 +61,25 @@ namespace MajorProject2022
                 EmailBox.Text = string.Empty;
         }
 
+        public void Create()
+        {
+            using (UserDataContext context = new UserDataContext())
+            {
+                var username = UsernameBox.Text;
+                var password = PasswordBox.Password;
+                var email = EmailBox.Text;
 
+                if (username != null && password != null && email != null)
+                {
+                    context.Users.Add(new User() { Name = username, Password = password, Email = email });
+                    context.SaveChanges(); //exception
+                }
+            }
+        }
+
+        private void RegisterClick(object sender, RoutedEventArgs e) //Register Button in the register window
+        {
+            Create(); //This calls the Create method, and makes a new user in the databse
+        }
     }
 }

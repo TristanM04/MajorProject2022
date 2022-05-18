@@ -131,7 +131,10 @@
                             Content="LOGIN"
                             Margin="60,0,60,0" 
                             Click="Button_Click"/>
-                    <Button Width="100" Height="40" Content="REGISTER"/>
+                    <Button Width="100" 
+                            Height="40" 
+                            Content="REGISTER"
+                            Click="RegisterClick"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

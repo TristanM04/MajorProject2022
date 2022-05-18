@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="CleanButtonTheme.xaml"/>
                 <ResourceDictionary Source="CleanTextBoxTheme.xaml"/>
+                <ResourceDictionary Source="CleanMessageBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

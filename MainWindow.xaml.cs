@@ -79,7 +79,7 @@ namespace MajorProject2022
                 PassBox.Password = string.Empty;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e) // Brings the user to the register window
         {
             RegisterWindow register = new RegisterWindow();
             register.Show();
