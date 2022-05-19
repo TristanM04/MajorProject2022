@@ -14,7 +14,7 @@ namespace MajorProject2022
             optionsBuilder.UseSqlite("Data Source = DataFile.db");
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> User { get; set; }
 
     }
 }

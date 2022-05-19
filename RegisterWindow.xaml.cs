@@ -19,6 +19,8 @@ namespace MajorProject2022
     /// </summary>
     public partial class RegisterWindow : Window
     {
+        public List<User> DatabaseUsers { get; private set; }
+
         public RegisterWindow()
         {
             InitializeComponent();
@@ -65,15 +67,37 @@ namespace MajorProject2022
         {
             using (UserDataContext context = new UserDataContext())
             {
-                var username = UsernameBox.Text;
-                var password = PasswordBox.Password;
+                var UserName = UsernameBox.Text;
+                var PassWord = PasswordBox.Password;
                 var email = EmailBox.Text;
 
-                if (username != null && password != null && email != null)
+                if (UserName != null && PassWord != null && email != null) //Make sure all fields are filled
                 {
-                    context.Users.Add(new User() { Name = username, Password = password, Email = email });
-                    context.SaveChanges(); //exception
+                    if (context.User.Any(user => user.Name == UserName && user.Email == email)) //Checks to make sure the users details does not already exist
+                    {
+                        MessageBox.Show("User already exists");
+                    }
+                    else
+                    {
+                        context.User.Add(new User() { Name = UserName, Password = PassWord, Email = email }); //If it doesnt exist, then create the user
+                        context.SaveChanges(); //exception 
+                    }
+                } 
+                else
+                {
+                    MessageBox.Show("Please fill all fields");
                 }
+                MessageBox.Show("Created new user!");
+            }
+        }
+
+
+        public void Read()
+        {
+            using (UserDataContext context = new UserDataContext())
+            {
+                DatabaseUsers = context.User.ToList();
+                Console.WriteLine(DatabaseUsers);
             }
         }
 

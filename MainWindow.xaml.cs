@@ -52,7 +52,7 @@ namespace MajorProject2022
 
             using (UserDataContext context = new UserDataContext())
             {
-                bool userfound = context.Users.Any(user => user.Name == UserName && user.Password == PassWord);
+                bool userfound = context.User.Any(user => user.Name == UserName && user.Password == PassWord);
 
                 if (userfound)
                 {
