@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace MajorProject2022
 {
@@ -63,31 +65,41 @@ namespace MajorProject2022
                 EmailBox.Text = string.Empty;
         }
 
+        public static bool RegexEmailCheck(string email) // returns true if the input is a valid email
+        {
+            return Regex.IsMatch(email, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+        }
         public void Create()
         {
             using (UserDataContext context = new UserDataContext())
             {
                 var UserName = UsernameBox.Text;
                 var PassWord = PasswordBox.Password;
-                var email = EmailBox.Text;
+                string email = EmailBox.Text;
 
-                if (UserName != null && PassWord != null && email != null) //Make sure all fields are filled
+                if (UserName != null && PassWord != null && email != null && UserName != "Username" && email != "Email") //Make sure all fields are filled
                 {
-                    if (context.User.Any(user => user.Name == UserName && user.Email == email)) //Checks to make sure the users details does not already exist
+                    if (RegexEmailCheck(email)) //Calls the Email checker function
                     {
-                        MessageBox.Show("User already exists");
-                    }
-                    else
+                        if (context.User.Any(User => User.Name == UserName || User.Email == email)) //Checks to make sure the users details does not already exist
+                        {
+                            MessageBox.Show("User already exists");
+                        }
+                        else
+                        {
+                            context.User.Add(new User() { Name = UserName, Password = PassWord, Email = email }); //If it doesnt exist, then create the user
+                            context.SaveChanges(); //exception 
+                            MessageBox.Show("Created new user!");
+                        }
+                    } else
                     {
-                        context.User.Add(new User() { Name = UserName, Password = PassWord, Email = email }); //If it doesnt exist, then create the user
-                        context.SaveChanges(); //exception 
+                        MessageBox.Show("Invalid Email address");
                     }
                 } 
                 else
                 {
                     MessageBox.Show("Please fill all fields");
                 }
-                MessageBox.Show("Created new user!");
             }
         }
 
@@ -104,6 +116,10 @@ namespace MajorProject2022
         private void RegisterClick(object sender, RoutedEventArgs e) //Register Button in the register window
         {
             Create(); //This calls the Create method, and makes a new user in the databse
+        }
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

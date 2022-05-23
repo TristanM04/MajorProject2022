@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MajorProject2022" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="380"
+        Title="MainWindow" Height="450" Width="380" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
@@ -21,7 +21,7 @@
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="DarkBlue" Offset="0.0"/>
-                        <GradientStop Color="black" Offset="1"/>
+                        <GradientStop Color="#010917" Offset="1"/>
 
                     </LinearGradientBrush>
                 </Border.Background>

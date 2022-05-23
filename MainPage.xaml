@@ -3,10 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MajorProject2022"
+        xmlns:local="clr-namespace:MajorProject2022" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainPage" Height="450" Width="800">
+        Title="MainPage" Height="740" Width="1280" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown">
     <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
+
+
+            <Border CornerRadius="30" Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="DarkBlue" Offset="0.0"/>
+                        <GradientStop Color="#010917" Offset="1"/>
+
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

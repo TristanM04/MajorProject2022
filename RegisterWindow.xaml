@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MajorProject2022" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="450" Width="380"
+        Title="RegisterWindow" Height="450" Width="380" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
@@ -21,11 +21,26 @@
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="DarkBlue" Offset="0.0"/>
-                        <GradientStop Color="black" Offset="1"/>
+                        <GradientStop Color="#010917" Offset="1"/>
 
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Button x:Name="ExitButton"
+                            Margin="340,10,0,0"
+                            Width="30" 
+                            Height="30" 
+                            Click="ExitButton_Click" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top"
+                            BorderThickness="2">
+
+                    <iconPacks:PackIconMaterial Kind="CloseThick"
+                                            Foreground="White"/>
+                </Button>
+            </StackPanel>
 
             <StackPanel>
 
