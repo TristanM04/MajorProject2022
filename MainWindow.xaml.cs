@@ -41,7 +41,7 @@ namespace MajorProject2022
         
         public void GrantAccess() // Shows the Home page after logging in with the correct details
         {
-            MainPage main = new MainPage();
+            TestHomePage main = new TestHomePage();
             main.Show();
         }
 
