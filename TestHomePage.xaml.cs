@@ -66,5 +66,31 @@ namespace MajorProject2022
         {
             Close();
         }
+
+        private void AddWorkOutBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DurationBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox txtBox = sender as TextBox;
+            if (txtBox.Text == "Title")
+                txtBox.Text = string.Empty;
+        }
+
+        private void DescriptionBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox descripBox = sender as TextBox;
+            if (descripBox.Text == "Description")
+                descripBox.Text = string.Empty;
+        }
+
+        private void TitleBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox TitleBox = sender as TextBox;
+            if (TitleBox.Text == "Title")
+                TitleBox.Text = string.Empty;
+        }
     }
 }

@@ -69,7 +69,7 @@ namespace MajorProject2022
         {
             return Regex.IsMatch(email, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
-        public void Create()
+        public void Create() // Creates a new user and add it to the database
         {
             using (UserDataContext context = new UserDataContext())
             {
@@ -102,8 +102,6 @@ namespace MajorProject2022
                 }
             }
         }
-
-
         public void Read()
         {
             using (UserDataContext context = new UserDataContext())
@@ -112,7 +110,6 @@ namespace MajorProject2022
                 Console.WriteLine(DatabaseUsers);
             }
         }
-
         private void RegisterClick(object sender, RoutedEventArgs e) //Register Button in the register window
         {
             Create(); //This calls the Create method, and makes a new user in the databse
