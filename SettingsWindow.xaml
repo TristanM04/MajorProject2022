@@ -226,7 +226,8 @@
                         Margin="0,180,0,20" 
                         Style="{DynamicResource HomeBtnStyle}" 
                         MouseEnter="Workout_MouseEnter" 
-                        MouseLeave="Workout_MouseLeave">
+                        MouseLeave="Workout_MouseLeave"
+                        Click="Workout_Click">
 
 
                                 <!--Button Icon-->
@@ -411,15 +412,26 @@
                         Height="2"
                         Background="White"
                         Opacity="1.0"/>
-
-                    <Button x:Name="AddWorkOutBtn"
-                            Width="250" 
-                            Height="60" 
+                    <StackPanel  Orientation="Horizontal" Margin="0,60,0,0">
+                        <Button x:Name="EditButton"
+                            Width="200" 
+                            Height="50" 
+                            Content="Edit details"
+                            FontSize="20"
+                            Margin="20,20,0,0" 
+                            Click="EditButton_Click"
+                            />
+                        <Button x:Name="Confirm"
+                            Width="200" 
+                            Height="50" 
                             Content="Add Workout"
                             FontSize="20"
-                            Margin="60,80,60,0" 
-                            Click="AddWorkOutBtn_Click"
+                            Margin="20,20,60,0" 
+                            Click="Confirm_Click"
                             />
+                    </StackPanel>
+
+                   
                 </StackPanel>
             </Grid>
 

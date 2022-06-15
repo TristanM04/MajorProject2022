@@ -92,5 +92,12 @@ namespace MajorProject2022
             if (TitleBox.Text == "Title")
                 TitleBox.Text = string.Empty;
         }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settings = new SettingsWindow();
+            settings.Show();
+            Close();
+        }
     }
 }

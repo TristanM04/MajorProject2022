@@ -67,3 +67,5 @@ C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainWindow
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\CleanMessageBoxTheme.baml
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\TestHomePage.g.cs
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\TestHomePage.baml
+C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\SettingsWindow.g.cs
+C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\SettingsWindow.baml

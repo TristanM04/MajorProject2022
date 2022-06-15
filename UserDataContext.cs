@@ -11,10 +11,11 @@ namespace MajorProject2022
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = DataFile.db");
+            optionsBuilder.UseSqlite("Data Source = SDDDataFile.db");
         }
 
         public DbSet<User> User { get; set; }
+        public DbSet<Workout> Workouts { get; set; }
 
     }
 }

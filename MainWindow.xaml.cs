@@ -43,21 +43,43 @@ namespace MajorProject2022
         {
             TestHomePage main = new TestHomePage();
             main.Show();
+            using (UserDataContext context = new UserDataContext())
+            {
+                // Save user ID as a variable3
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) //Click the login button
         {
             var UserName = UsernameBox.Text;
             var PassWord = PasswordBox.Password;
+            
 
             using (UserDataContext context = new UserDataContext())
             {
-                bool userfound = context.User.Any(user => user.Name == UserName && user.Password == PassWord);
+                bool userfound = context.User.Any(user => user.Name == UserName && user.Password == PassWord); //Checks to see if the details exist
+
+
+                int primaryKey = 0;
+
+                User foundUser = context.User.FirstOrDefault(a => a.Name == UserName);
+                if (null != foundUser)
+                {
+                    primaryKey = foundUser.Id;
+                }
+                bool testbool = context.User.Any(user => user.Name == UserName && user.Password == PassWord && user.Id == primaryKey); //Checks to see if the details exist
+
+                if (testbool)
+                {
+                    MessageBox.Show("TEST WORKED!!!");
+                }
 
                 if (userfound)
                 {
-                    GrantAccess();
+                    GrantAccess(); //Brings the user to the main page
                     Close();
+
+
                 } else
                 {
                     MessageBox.Show("User Not Found");
