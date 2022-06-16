@@ -9,6 +9,7 @@ namespace MajorProject2022
         public string Title { get; set; }
         public string Duration { get; set; }
         public string Description { get; set; }
-        public string UserId { get; set; }
+        public int UserID { get; set; }
+        public string Date { get; set; }
     }
 }

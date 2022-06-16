@@ -31,7 +31,7 @@ namespace MajorProject2022
             InitializeComponent();
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) // Allows the user to drag the window around the screen for accessibiity
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -49,6 +49,10 @@ namespace MajorProject2022
             }
         }
 
+        public static class Globals
+        {
+            public static int primaryKey;
+        }
         private void Button_Click(object sender, RoutedEventArgs e) //Click the login button
         {
             var UserName = UsernameBox.Text;
@@ -59,23 +63,13 @@ namespace MajorProject2022
             {
                 bool userfound = context.User.Any(user => user.Name == UserName && user.Password == PassWord); //Checks to see if the details exist
 
-
-                int primaryKey = 0;
-
-                User foundUser = context.User.FirstOrDefault(a => a.Name == UserName);
-                if (null != foundUser)
-                {
-                    primaryKey = foundUser.Id;
-                }
-                bool testbool = context.User.Any(user => user.Name == UserName && user.Password == PassWord && user.Id == primaryKey); //Checks to see if the details exist
-
-                if (testbool)
-                {
-                    MessageBox.Show("TEST WORKED!!!");
-                }
-
                 if (userfound)
                 {
+                    User foundUser = context.User.FirstOrDefault(a => a.Name == UserName); //get a matching record based on the condition. If no matching record is found, the default value of null will be returned.
+                    if (null != foundUser)                                                 //since we have already found the name, it will always return the id
+                    {
+                        Globals.primaryKey = foundUser.Id; // Saves the users ID as a global variable
+                    }
                     GrantAccess(); //Brings the user to the main page
                     Close();
 

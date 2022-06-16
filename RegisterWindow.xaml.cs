@@ -21,7 +21,7 @@ namespace MajorProject2022
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        public List<User> DatabaseUsers { get; private set; }
+        
 
         public RegisterWindow()
         {
@@ -102,14 +102,7 @@ namespace MajorProject2022
                 }
             }
         }
-        public void Read()
-        {
-            using (UserDataContext context = new UserDataContext())
-            {
-                DatabaseUsers = context.User.ToList();
-                Console.WriteLine(DatabaseUsers);
-            }
-        }
+
         private void RegisterClick(object sender, RoutedEventArgs e) //Register Button in the register window
         {
             Create(); //This calls the Create method, and makes a new user in the databse

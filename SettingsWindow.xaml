@@ -334,10 +334,10 @@
                     <!--This is the Add workouts box-->
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,70,0">
-                        <TextBox x:Name="TitleBox" FontFamily="Helvetica"
+                        <TextBox x:Name="EmailBox" FontFamily="Helvetica"
                          FontWeight="Light"
-                         Text="Username"
-                         GotKeyboardFocus="TitleBox_GotKeyboardFocus"
+                         Text="{Binding Path=email, UpdateSourceTrigger=PropertyChanged}"
+                         GotKeyboardFocus="EmailBox_GotKeyboardFocus"
                          FontSize="30"
                          HorizontalAlignment="Center"
                          Foreground="White"
@@ -347,8 +347,8 @@
                          HorizontalContentAlignment="Left"
                          Opacity="0.4"
                          Height="35"
-                         Margin="100,50,0,0"/>
-                        <iconPacks:PackIconMaterial Kind="FormatTitle"
+                         Margin="120,50,0,0"/>
+                        <iconPacks:PackIconMaterial Kind="Email"
                                             VerticalAlignment="Bottom"
                                             HorizontalAlignment="Center"
                                             Margin="0,20,35,3"
@@ -361,10 +361,10 @@
                         Opacity="1.0"/>
 
                     <StackPanel Orientation="Horizontal" Margin="0,100,0,0">
-                        <TextBox x:Name="DescriptionBox" FontFamily="Helvetica"
+                        <TextBox x:Name="UsernameBox" FontFamily="Helvetica"
                          FontWeight="Light"
-                         Text="Description"
-                         GotKeyboardFocus="DescriptionBox_GotKeyboardFocus"
+                         Text="Username"
+                         GotKeyboardFocus="UsernameBox_GotKeyboardFocus"
                          FontSize="30"
                          HorizontalAlignment="Center"
                          Foreground="White"
@@ -374,8 +374,8 @@
                          HorizontalContentAlignment="Left"
                          Opacity="0.4"
                          Height="35"
-                         Margin="100,0,0,0"/>
-                        <iconPacks:PackIconMaterial Kind="Information"
+                         Margin="120,0,0,0"/>
+                        <iconPacks:PackIconMaterial Kind="Account"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Center"
                                             Foreground="White"/>
@@ -387,10 +387,10 @@
                         Opacity="1.0"/>
 
                     <StackPanel Orientation="Horizontal" Margin="0,100,0,0">
-                        <TextBox x:Name="DurationBox" FontFamily="Helvetica"
+                        <TextBox x:Name="PasswordBox" FontFamily="Helvetica"
                          FontWeight="Light"
-                         Text="Duration(min)"
-                         GotKeyboardFocus="DurationBox_GotKeyboardFocus"
+                         Text="Password"
+                         GotKeyboardFocus="PasswordBox_GotKeyboardFocus"
                          FontSize="30"
                          HorizontalAlignment="Center"
                          Foreground="White"
@@ -400,10 +400,10 @@
                          HorizontalContentAlignment="Left"
                          Opacity="0.4"
                          Height="35"
-                         Margin="100,0,0,0"/>
+                         Margin="120,0,0,0"/>
 
 
-                        <iconPacks:PackIconMaterial Kind="TimerSand"
+                        <iconPacks:PackIconMaterial Kind="Lock"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Center"
                                             Foreground="White"/>
@@ -424,7 +424,7 @@
                         <Button x:Name="Confirm"
                             Width="200" 
                             Height="50" 
-                            Content="Add Workout"
+                            Content="Confirm"
                             FontSize="20"
                             Margin="20,20,60,0" 
                             Click="Confirm_Click"

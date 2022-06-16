@@ -104,5 +104,22 @@ namespace MajorProject2022
             workout.Show();
             Close();
         }
+
+        private void EmailBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox EmailBox = sender as TextBox;
+            if (EmailBox.Text == "Title")
+                EmailBox.Text = string.Empty;
+        }
+
+        private void UsernameBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+        }
+
+        private void PasswordBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+
+        }
     }
 }
