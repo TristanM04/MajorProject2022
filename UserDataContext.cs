@@ -16,6 +16,5 @@ namespace MajorProject2022
 
         public DbSet<User> User { get; set; }
         public DbSet<Workout> Workouts { get; set; }
-
     }
 }

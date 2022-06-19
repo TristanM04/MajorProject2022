@@ -286,24 +286,7 @@
                             </Button>
                             <Border CornerRadius="20"/>
 
-                            <Button x:Name="Chat"
-                        Height="100"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        Margin="0,0,0,10" 
-                        Style="{DynamicResource ProfileBtnStyle}" 
-                        MouseEnter="Chat_MouseEnter" 
-                        MouseLeave="Chat_MouseLeave">
 
-                                <!--Button Icon-->
-                                <iconPacks:PackIconMaterial Kind="Chat"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Center"
-                                            Foreground="White" 
-                                            Height="40" 
-                                            Width="40"/>
-
-                            </Button>
 
                             <Button x:Name="Settings"
                         Height="100"
@@ -475,7 +458,7 @@
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,-1600,0" Width="600">
-                <ListView Name="ItemList" Margin="0,10,0,60">
+                <ListView Name="ItemList" Margin="0,10,0,70">
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}" >
                             <GridViewColumn Header="Title" Width="125" DisplayMemberBinding="{Binding Title}"/>
@@ -487,15 +470,29 @@
                 </ListView>
             </Grid>
 
-            <Grid Grid.Column="1" Grid.Row="2" Margin="0,590,-1300,0" Width="300" Height="70">
+            <Grid Grid.Column="1" Grid.Row="2" Margin="0,590,-1600,0" Width="600" Height="70">
                 <StackPanel Grid.Row="1">
-                    <TextBlock Text="{Binding Path=finalValue, UpdateSourceTrigger=PropertyChanged}" 
+                    <Button x:Name="RefreshBtn"
+                            Width="150" 
+                            Height="40" 
+                            Content="Refresh"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            FontSize="20"
+                            Margin="0,0,0,0" 
+                            Click="RefreshBtn_Click"
+                            />
+                </StackPanel>
+                <StackPanel Grid.Row="2">
+                    <TextBlock Text="{Binding finalValue, UpdateSourceTrigger=PropertyChanged}" 
                                Foreground="White"
                                Background="Transparent"
                                FontFamily="Helvetica"
-                               FontSize="20"
+                               FontSize="22"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
                                FontWeight="Light"
-                               Name="Totaltext"/>
+                               x:Name="Totaltext" Height="39" Width="252"/>
                 </StackPanel>
             </Grid>
         </Grid>

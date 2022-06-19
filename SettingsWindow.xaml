@@ -242,25 +242,6 @@
 
                             <Border CornerRadius="20"/>
 
-                            <Button x:Name="Chat"
-                        Height="100"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        Margin="0,0,0,10" 
-                        Style="{DynamicResource ProfileBtnStyle}" 
-                        MouseEnter="Chat_MouseEnter" 
-                        MouseLeave="Chat_MouseLeave">
-
-                                <!--Button Icon-->
-                                <iconPacks:PackIconMaterial Kind="Chat"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Center"
-                                            Foreground="White" 
-                                            Height="40" 
-                                            Width="40"/>
-
-                            </Button>
-
                             <Button x:Name="Settings"
                         Height="100"
                         Background="Transparent"
@@ -296,7 +277,7 @@
                     <TextBlock VerticalAlignment="Center" 
                                Foreground="White" 
                                Margin="62,0,30,0"
-                               Text="Edit Profile"
+                               Text="Current details                                   New details"
                                Panel.ZIndex="1"
                                FontFamily="Helvetica"
                                FontWeight="ExtraBold"
@@ -330,24 +311,21 @@
             </Grid>
 
             <Grid Grid.Column="1" Margin="0,73,-474,0" Grid.RowSpan="3">
-                <StackPanel IsEnabled="False" Margin="30" HorizontalAlignment="Center">
+                <StackPanel IsEnabled="True" Margin="30" HorizontalAlignment="Center">
                     <!--This is the Add workouts box-->
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,70,0">
-                        <TextBox x:Name="EmailBox" FontFamily="Helvetica"
+                        <TextBlock x:Name="EmailBox" FontFamily="Helvetica"
                          FontWeight="Light"
-                         Text="{Binding Path=email, UpdateSourceTrigger=PropertyChanged}"
-                         GotKeyboardFocus="EmailBox_GotKeyboardFocus"
-                         FontSize="30"
+                         Text="{Binding Path=Globals.eMail, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="25"
                          HorizontalAlignment="Center"
                          Foreground="White"
                          Background="Transparent"
-                         BorderThickness="0"
                          Width="235"
-                         HorizontalContentAlignment="Left"
                          Opacity="0.4"
                          Height="35"
-                         Margin="120,50,0,0"/>
+                         Margin="105,50,0,0"/>
                         <iconPacks:PackIconMaterial Kind="Email"
                                             VerticalAlignment="Bottom"
                                             HorizontalAlignment="Center"
@@ -361,20 +339,17 @@
                         Opacity="1.0"/>
 
                     <StackPanel Orientation="Horizontal" Margin="0,100,0,0">
-                        <TextBox x:Name="UsernameBox" FontFamily="Helvetica"
+                        <TextBlock x:Name="UsernameBox" FontFamily="Helvetica"
                          FontWeight="Light"
-                         Text="Username"
-                         GotKeyboardFocus="UsernameBox_GotKeyboardFocus"
-                         FontSize="30"
+                         Text="{Binding Path=Globals.userName, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="25"
                          HorizontalAlignment="Center"
                          Foreground="White"
                          Background="Transparent"
-                         BorderThickness="0"
                          Width="235"
-                         HorizontalContentAlignment="Left"
                          Opacity="0.4"
                          Height="35"
-                         Margin="120,0,0,0"/>
+                         Margin="105,0,0,0"/>
                         <iconPacks:PackIconMaterial Kind="Account"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Center"
@@ -387,20 +362,108 @@
                         Opacity="1.0"/>
 
                     <StackPanel Orientation="Horizontal" Margin="0,100,0,0">
-                        <TextBox x:Name="PasswordBox" FontFamily="Helvetica"
+                        <TextBlock x:Name="PasswordBox" FontFamily="Helvetica"
                          FontWeight="Light"
-                         Text="Password"
-                         GotKeyboardFocus="PasswordBox_GotKeyboardFocus"
-                         FontSize="30"
+                         Text="{Binding Path=Globals.passWord, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="25"
                          HorizontalAlignment="Center"
                          Foreground="White"
                          Background="Transparent"
-                         BorderThickness="0"
                          Width="235"
-                         HorizontalContentAlignment="Left"
                          Opacity="0.4"
                          Height="35"
-                         Margin="120,0,0,0"/>
+                         Margin="105,0,0,0"/>
+
+
+                        <iconPacks:PackIconMaterial Kind="Lock"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"/>
+                        
+                    </StackPanel>
+                    <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="1.0"/>
+                    <StackPanel  Orientation="Horizontal" Margin="0,60,0,0">
+                        <Button x:Name="NewRefresh"
+                            Width="250" 
+                            Height="60" 
+                            Content="Refresh"
+                            FontSize="20"
+                            Margin="107,20,60,0" 
+                            Click="NewRefresh_Click"
+                            />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2" Margin="573,73,-1114,0" Grid.RowSpan="3">
+                <StackPanel IsEnabled="True" Margin="30" HorizontalAlignment="Center">
+                    <!--This is the Add workouts box-->
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,70,0">
+                        <TextBox x:Name="NewEmailBox" FontFamily="Helvetica"
+                         FontWeight="Light"
+                         Text="Email"
+                         GotKeyboardFocus="EmailBox_GotKeyboardFocus"
+                         FontSize="25"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         HorizontalContentAlignment="Left"
+                         Width="235"
+                         Opacity="0.4"
+                         Height="35"
+                         Margin="105,50,0,0"/>
+                        <iconPacks:PackIconMaterial Kind="Email"
+                                            VerticalAlignment="Bottom"
+                                            HorizontalAlignment="Center"
+                                            Margin="0,20,35,3"
+                                            Foreground="White"/>
+
+                    </StackPanel>
+                    <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="1.0"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,100,0,0">
+                        <TextBox x:Name="NewUsernameBox" FontFamily="Helvetica"
+                         FontWeight="Light"
+                         Text="Username"
+                         GotKeyboardFocus="UsernameBox_GotKeyboardFocus"
+                         FontSize="25"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="235"
+                         Opacity="0.4"
+                         Height="35"
+                         Margin="105,0,0,0"/>
+                        <iconPacks:PackIconMaterial Kind="Account"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Foreground="White"/>
+
+                    </StackPanel>
+                    <Border Width="250"
+                        Height="2"
+                        Background="White"
+                        Opacity="1.0"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,100,0,0">
+                        <PasswordBox x:Name="NewPasswordBox" FontFamily="Helvetica"
+                         FontWeight="Light"
+                         Password="Password"
+                         GotKeyboardFocus="PasswordBox_GotKeyboardFocus"
+                         FontSize="25"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         Width="235"
+                         Opacity="0.4"
+                         Height="35"
+                         Margin="105,0,0,0"/>
 
 
                         <iconPacks:PackIconMaterial Kind="Lock"
@@ -413,28 +476,18 @@
                         Background="White"
                         Opacity="1.0"/>
                     <StackPanel  Orientation="Horizontal" Margin="0,60,0,0">
-                        <Button x:Name="EditButton"
-                            Width="200" 
-                            Height="50" 
-                            Content="Edit details"
-                            FontSize="20"
-                            Margin="20,20,0,0" 
-                            Click="EditButton_Click"
-                            />
-                        <Button x:Name="Confirm"
-                            Width="200" 
-                            Height="50" 
+                        <Button x:Name="NewConfirm"
+                            Width="250" 
+                            Height="60" 
                             Content="Confirm"
                             FontSize="20"
-                            Margin="20,20,60,0" 
+                            Margin="115,20,60,0" 
                             Click="Confirm_Click"
                             />
                     </StackPanel>
-
-                   
                 </StackPanel>
             </Grid>
-
+            
         </Grid>
     </Border>
 </Window>

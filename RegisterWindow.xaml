@@ -113,7 +113,7 @@
                         Foreground="#ffffff"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"/>
-                <Image  Height="87" Width="152"/>
+                
             </StackPanel>
 
 

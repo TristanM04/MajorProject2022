@@ -56,8 +56,6 @@ C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MajorProje
 C:\Users\trist\source\repos\MajorProject2022\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Core.dll
 C:\Users\trist\source\repos\MajorProject2022\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Material.dll
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\App.baml
-C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainPage.g.cs
-C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\MainPage.baml
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\CleanButtonTheme.baml
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\CleanTextBoxTheme.baml
 C:\Users\trist\source\repos\MajorProject2022\obj\Debug\net5.0-windows\RegisterWindow.g.cs

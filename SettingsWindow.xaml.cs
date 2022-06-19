@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static MajorProject2022.MainWindow;
 
 namespace MajorProject2022
 {
@@ -22,6 +23,7 @@ namespace MajorProject2022
         public SettingsWindow()
         {
             InitializeComponent();
+            Read();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -30,75 +32,49 @@ namespace MajorProject2022
             {
                 DragMove();
             }
-        }
+        } //Allows the window to be moved around
 
         private void Workout_MouseEnter(object sender, MouseEventArgs e)
         {
 
-        }
+        } //Hover over animation method
 
         private void Workout_MouseLeave(object sender, MouseEventArgs e)
         {
 
-        }
+        }//Hover over animation method
 
         private void Chat_MouseEnter(object sender, MouseEventArgs e)
         {
 
-        }
+        }//Hover over animation method
 
         private void Chat_MouseLeave(object sender, MouseEventArgs e)
         {
 
-        }
+        }//Hover over animation method
 
         private void Settings_MouseEnter(object sender, MouseEventArgs e)
         {
 
-        }
+        }//Hover over animation method
 
         private void Settings_MouseLeave(object sender, MouseEventArgs e)
         {
 
-        }
+        }//Hover over animation method
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
+        } // Exit button
 
-        private void TitleBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        private void Confirm_Click(object sender, RoutedEventArgs e) // Confirms changing personal details
         {
-            TextBox TitleBox = sender as TextBox;
-            if (TitleBox.Text == "Title")
-                TitleBox.Text = string.Empty;
+            Create();
         }
 
-        private void DescriptionBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            TextBox descripBox = sender as TextBox;
-            if (descripBox.Text == "Description")
-                descripBox.Text = string.Empty;
-        }
-
-        private void DurationBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            TextBox txtBox = sender as TextBox;
-            if (txtBox.Text == "Title")
-                txtBox.Text = string.Empty;
-        }
-
-        private void EditButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Confirm_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Workout_Click(object sender, RoutedEventArgs e)
+        private void Workout_Click(object sender, RoutedEventArgs e) //Goes back to the workout page
         {
             TestHomePage workout = new TestHomePage();
             workout.Show();
@@ -108,18 +84,54 @@ namespace MajorProject2022
         private void EmailBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
             TextBox EmailBox = sender as TextBox;
-            if (EmailBox.Text == "Title")
+            if (EmailBox.Text == "Email")
                 EmailBox.Text = string.Empty;
-        }
+        } // Makes text in text box dissappear on click
 
         private void UsernameBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-
-        }
+            TextBox UsernameBox = sender as TextBox;
+            if (UsernameBox.Text == "Username")
+                UsernameBox.Text = string.Empty;
+        } // Makes text in text box dissappear on click
 
         private void PasswordBox_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
+            PasswordBox PasswordBox = sender as PasswordBox;
+            if (PasswordBox.Password == "Password")
+                PasswordBox.Password = string.Empty;
+        } // Makes text in text box dissappear on click
 
+        public void Read() // Display's the user's current personal details
+        {
+            EmailBox.Text = Globals.eMail; //Stores the logged in user's email into the email box
+            UsernameBox.Text = Globals.userName; //Stores the logged in user's name into the username box
+            PasswordBox.Text = Globals.passWord; //Stores the logged in user's password into the password box
+        }
+
+        public void Create() // The method to update the user's details in the database
+        {
+            var newEmail = NewEmailBox;
+            var newUsername = NewUsernameBox;
+            var newPassword = NewPasswordBox;
+
+            using (UserDataContext context = new UserDataContext())
+            {
+                User user = context.User.Find(Globals.primaryKey);
+                user.Email = newEmail.Text;
+                user.Name = newUsername.Text;
+                user.Password = newPassword.Password;
+                context.SaveChanges();
+            }
+
+            Globals.eMail = newEmail.Text;
+            Globals.userName = newUsername.Text;
+            Globals.passWord = newPassword.Password;
+        }
+
+        private void NewRefresh_Click(object sender, RoutedEventArgs e) // Refreshes the page, displaying the updated details
+        {
+            Read();
         }
     }
 }

@@ -150,5 +150,10 @@ namespace MajorProject2022
             settings.Show();
             Close();
         }
+
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Read();
+        }
     }
 }

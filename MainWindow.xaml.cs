@@ -52,6 +52,9 @@ namespace MajorProject2022
         public static class Globals
         {
             public static int primaryKey;
+            public static string userName;
+            public static string eMail;
+            public static string passWord;
         }
         private void Button_Click(object sender, RoutedEventArgs e) //Click the login button
         {
@@ -69,6 +72,9 @@ namespace MajorProject2022
                     if (null != foundUser)                                                 //since we have already found the name, it will always return the id
                     {
                         Globals.primaryKey = foundUser.Id; // Saves the users ID as a global variable
+                        Globals.userName = foundUser.Name;
+                        Globals.eMail = foundUser.Email;
+                        Globals.passWord = foundUser.Password;
                     }
                     GrantAccess(); //Brings the user to the main page
                     Close();
