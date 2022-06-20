@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace MajorProject2022
 {
@@ -69,6 +70,7 @@ namespace MajorProject2022
         {
             return Regex.IsMatch(email, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
+
         public void Create() // Creates a new user and add it to the database
         {
             using (UserDataContext context = new UserDataContext())
@@ -87,7 +89,12 @@ namespace MajorProject2022
                         }
                         else
                         {
-                            context.User.Add(new User() { Name = UserName, Password = PassWord, Email = email }); //If it doesnt exist, then create the user
+                            var hasher = new SHA256Managed(); //Calls the hashing function
+                            var unhashed = System.Text.Encoding.Unicode.GetBytes(PassWord); //Converts the password into a byte array
+                            var hashed = hasher.ComputeHash(unhashed); //Hashes the byte array with the hashing function
+                            var hashedPassword = Convert.ToBase64String(hashed); //Converts the hashed byte array back into a string
+
+                            context.User.Add(new User() { Name = UserName, Password = hashedPassword, Email = email }); //If it doesnt exist, then create the user
                             context.SaveChanges(); //exception 
                             MessageBox.Show("Created new user!");
                         }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static MajorProject2022.MainWindow;
+using System.Security.Cryptography;
 
 namespace MajorProject2022
 {
@@ -106,27 +107,40 @@ namespace MajorProject2022
         {
             EmailBox.Text = Globals.eMail; //Stores the logged in user's email into the email box
             UsernameBox.Text = Globals.userName; //Stores the logged in user's name into the username box
-            PasswordBox.Text = Globals.passWord; //Stores the logged in user's password into the password box
+
+            string dottedpassword = "";
+
+            for (int i = 0;i < Globals.passWord.Length; i++) 
+            {
+                dottedpassword = dottedpassword + "●";
+            }
+
+            PasswordBox.Text = dottedpassword; //Stores the logged in user's password into the password box
         }
 
         public void Create() // The method to update the user's details in the database
         {
-            var newEmail = NewEmailBox;
-            var newUsername = NewUsernameBox;
-            var newPassword = NewPasswordBox;
+            var newEmail = NewEmailBox.Text;
+            var newUsername = NewUsernameBox.Text;
+            var newPassword = NewPasswordBox.Password;
+
+            var hasher = new SHA256Managed(); //Calls the hashing function
+            var unhashed = System.Text.Encoding.Unicode.GetBytes(newPassword); //Converts the password into a byte array
+            var hashed = hasher.ComputeHash(unhashed); //Hashes the byte array with the hashing function
+            var hashedPassword = Convert.ToBase64String(hashed); //Converts the hashed byte array back into a string
 
             using (UserDataContext context = new UserDataContext())
             {
                 User user = context.User.Find(Globals.primaryKey);
-                user.Email = newEmail.Text;
-                user.Name = newUsername.Text;
-                user.Password = newPassword.Password;
+                user.Email = newEmail;
+                user.Name = newUsername;
+                user.Password = hashedPassword;
                 context.SaveChanges();
             }
 
-            Globals.eMail = newEmail.Text;
-            Globals.userName = newUsername.Text;
-            Globals.passWord = newPassword.Password;
+            Globals.eMail = newEmail;
+            Globals.userName = newUsername;
+            Globals.passWord = newPassword;
         }
 
         private void NewRefresh_Click(object sender, RoutedEventArgs e) // Refreshes the page, displaying the updated details

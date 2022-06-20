@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Security.Cryptography;
+using static MajorProject2022.RegisterWindow;
 
 namespace MajorProject2022
 {
@@ -56,15 +58,23 @@ namespace MajorProject2022
             public static string eMail;
             public static string passWord;
         }
+
+
         private void Button_Click(object sender, RoutedEventArgs e) //Click the login button
         {
             var UserName = UsernameBox.Text;
             var PassWord = PasswordBox.Password;
-            
+
+            var hasher = new SHA256Managed(); //Calls the hashing function
+            var unhashed = System.Text.Encoding.Unicode.GetBytes(PassWord); //Converts the password into a byte array
+            var hashed = hasher.ComputeHash(unhashed); //Hashes the byte array with the hashing function
+            var hashedPassword = Convert.ToBase64String(hashed); //Converts the hashed byte array back into a string
+
 
             using (UserDataContext context = new UserDataContext())
+
             {
-                bool userfound = context.User.Any(user => user.Name == UserName && user.Password == PassWord); //Checks to see if the details exist
+                bool userfound = context.User.Any(user => user.Name == UserName && user.Password == hashedPassword); //Checks to see if the details exist
 
                 if (userfound)
                 {
@@ -74,7 +84,7 @@ namespace MajorProject2022
                         Globals.primaryKey = foundUser.Id; // Saves the users ID as a global variable
                         Globals.userName = foundUser.Name;
                         Globals.eMail = foundUser.Email;
-                        Globals.passWord = foundUser.Password;
+                        Globals.passWord = PassWord;
                     }
                     GrantAccess(); //Brings the user to the main page
                     Close();
