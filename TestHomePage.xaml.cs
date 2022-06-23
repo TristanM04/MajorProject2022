@@ -28,7 +28,7 @@ namespace MajorProject2022
             Read();
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e) //Allows the windoes to be dragged around, allows accesibility
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -83,13 +83,13 @@ namespace MajorProject2022
                 var duration = DurationBox.Text;
                 if (title != null && description != null && duration != null)  //Make sure all fields are filled
                 {
-                    if (duration.Any(c => Char.IsLetter(c)))
+                    if (duration.Any(c => Char.IsLetter(c))) //Makes sure an exception isn't thrown when the user tries to enter a letter for a duration
                     {
                         MessageBox.Show("Duration must be an integer");
                     } else
                     {
                         context.Workouts.Add(new Workout() { Title = title, Description = description, Duration = duration, UserID = Globals.primaryKey, Date = DateString}); //If it doesnt exist, then create the user
-                        context.SaveChanges(); //exception 
+                        context.SaveChanges(); //saves changes to the database
                         MessageBox.Show("Created workout!");
                     }
                 } else
@@ -132,7 +132,7 @@ namespace MajorProject2022
 
                 foreach (Workout item in ItemList.ItemsSource)
                 {
-                    total += Convert.ToDecimal(item.Duration);
+                    total += Convert.ToDecimal(item.Duration); //Calculates the amount of time the user has added
                 }
                 string totalhours = "Total minutes: ";
                 var finalValue = totalhours + total;
@@ -141,7 +141,7 @@ namespace MajorProject2022
             }
 
 
-        }
+        } //Reads from the database and displays in a list view
 
 
         private void Settings_Click(object sender, RoutedEventArgs e)
@@ -149,9 +149,9 @@ namespace MajorProject2022
             SettingsWindow settings = new SettingsWindow();
             settings.Show();
             Close();
-        }
+        } //Click to go to settings page
 
-        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e) //Refreshes the table and window
         {
             Read();
         }

@@ -57,7 +57,7 @@ namespace MajorProject2022
             public static string userName;
             public static string eMail;
             public static string passWord;
-        }
+        } //Creates global variables to be used throughout the program
 
 
         private void Button_Click(object sender, RoutedEventArgs e) //Click the login button

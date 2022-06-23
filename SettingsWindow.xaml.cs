@@ -110,9 +110,9 @@ namespace MajorProject2022
 
             string dottedpassword = "";
 
-            for (int i = 0;i < Globals.passWord.Length; i++) 
+            for (int i = 0;i < Globals.passWord.Length; i++)  //For each character in their password, it displays one dot
             {
-                dottedpassword = dottedpassword + "●";
+                dottedpassword = dottedpassword + "●"; // too avoid displaying the user's password in plain text
             }
 
             PasswordBox.Text = dottedpassword; //Stores the logged in user's password into the password box
@@ -131,11 +131,11 @@ namespace MajorProject2022
 
             using (UserDataContext context = new UserDataContext())
             {
-                User user = context.User.Find(Globals.primaryKey);
-                user.Email = newEmail;
+                User user = context.User.Find(Globals.primaryKey); //Updates the user's details with the new details
+                user.Email = newEmail; 
                 user.Name = newUsername;
                 user.Password = hashedPassword;
-                context.SaveChanges();
+                context.SaveChanges(); //Saves changes
             }
 
             Globals.eMail = newEmail;
